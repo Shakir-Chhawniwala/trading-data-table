@@ -1,17 +1,11 @@
 import { PlusOutlined } from "@ant-design/icons";
 import {
-  ProColumns,
-  ProDescriptionsItemProps,
-} from "@ant-design/pro-components";
-import {
   ProCard,
   ProDescriptions,
   EditableProTable,
-  TableDropdown,
 } from "@ant-design/pro-components";
-import { Button, message, Space, Form, Tag } from "antd";
+import { Button,  Space, Form } from "antd";
 import { useState, useEffect, useRef} from "react";
-import request from "umi-request";
 import { columns } from "./columns"
 
 
@@ -46,24 +40,24 @@ const Table = () => {
 
   return (
     <>
-    <Space>
+      <Space>
         <Button
-          type = " primary "
-          onClick={ () => {  
-            actionRef.current?.addEditRecord ?. ({
-              id : ( Math.random() * 1000000 ).toFixed(0),   
-              title : 'new line' , 
-            }) ;
-          } }
-          icon = { <PlusOutlined /> } 
+          type=" primary "
+          onClick={() => {
+            actionRef.current?.addEditRecord?.({
+              id: (Math.random() * 1000000).toFixed(0),
+              title: "new line",
+            });
+          }}
+          icon={<PlusOutlined />}
         >
           new line
         </Button>
         <Button
-          key = " rest "
-          onClick = { () => {  
-            form.resetFields(); 
-          } }
+          key=" rest "
+          onClick={() => {
+            form.resetFields();
+          }}
         >
           reset form
         </Button>
@@ -75,11 +69,9 @@ const Table = () => {
           value={data.data}
           pagination={{
             pageSize: 5,
-            locale:true
+            locale: true,
           }}
-          options={{
-            search: true,
-          }}
+          recordCreatorProps={false}
           rowKey="id"
           dateFormatter="string"
           headerTitle="Query Table"
@@ -106,17 +98,17 @@ const Table = () => {
               background: "#fff",
             }}
             columns={columns}
-              // request={async (params) => {
-              //   const msg = await request<{
-              //     data: GithubIssueItem[];
-              //   }>('https://proapi.azurewebsites.net/github/issues',{
-              //     params,
-              //   });
-              //   return{
-              //     ...msg,
-              //     data: msg?.data[0],
-              //   };
-              // }}
+            // request={async (params) => {
+            //   const msg = await request<{
+            //     data: GithubIssueItem[];
+            //   }>('https://proapi.azurewebsites.net/github/issues',{
+            //     params,
+            //   });
+            //   return{
+            //     ...msg,
+            //     data: msg?.data[0],
+            //   };
+            // }}
           />
         )}
       </ProCard>
