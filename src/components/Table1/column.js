@@ -55,14 +55,13 @@ export const columns = [
     dataIndex: "labels",
     width: "15%",
     render: (_, row) => (
-      <Space>
+     <Space>
         {row.labels.map(({ name, color }) => (
           <Tag color={color} key={name}>
             {name}
           </Tag>
         ))}
-      </Space>
-    ),
+      </Space>)
   },
   {
     title: "Status",

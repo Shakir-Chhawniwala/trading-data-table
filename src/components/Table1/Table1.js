@@ -74,7 +74,7 @@ const Table1 = (props) => {
             total: 3,
             success: true,
           })}
-          value={defaultData}
+          value={props.data.data}
           onChange={setDataSource}
           editable={{
             form,
