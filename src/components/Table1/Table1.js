@@ -7,6 +7,7 @@ import {
 import { Button, Form,  Space } from "antd";
 import { columns } from "./column"
 import {defaultData } from "./data"
+import { Pagination } from "antd";
 
 const waitTime = (time = 100) => {
   return new Promise((resolve) => {
@@ -57,8 +58,10 @@ const Table1 = (props) => {
           headerTitle="Trading Table"
           // maxLength={5}
           pagination={{
-            pageSize: 5,
+            pageSize: 10,
+            locale: true,
           }}
+          dateFormatter="string"
           type="table"
           options={{
             search: true,

@@ -73,12 +73,21 @@ export const columns = [
     valueEnum: {
       all: { text: "all", status: "Default" },
       open: {
-        text: "unresolved",
+        text: "open",
         status: "Error",
       },
-      closed: {
+      working: {
+        text: "working",
+        status: "working",
+      },
+
+      done: {
         text: "resolved",
         status: "Success",
+      },
+      overdue: {
+        text: "working",
+        status: "working",
       },
     },
   },
